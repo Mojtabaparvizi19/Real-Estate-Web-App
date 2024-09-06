@@ -11,7 +11,7 @@ interface Prop {
 function PopUp({ city }: Prop) {
   const icon = new L.Icon({
     iconUrl: popUp,
-    iconSize: [35, 48],
+    iconSize: [35, 35],
   });
   return (
     <div>
