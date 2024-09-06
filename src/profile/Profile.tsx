@@ -39,7 +39,7 @@ function Profile() {
   } as Props);
 
   return (
-    <Box>
+    <Box width={"100%"} maxWidth={"1400px"}>
       <HiddenMenu />
       <SimpleGrid
         columns={{
