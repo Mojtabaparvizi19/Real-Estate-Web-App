@@ -30,17 +30,18 @@ function Details({ item }: Prop) {
           <Box width={"65%"}>
             <Image
               borderRadius={10}
-              // width={"100%"}
+              width={"100%"}
               height={"100%"}
               objectFit={"cover"}
               src={item.img}
             />
           </Box>
-          <Box maxW={"200px"} width={"35%"}>
+          <Box maxW={"180px"} width={"35%"}>
             {item.images.map((img, index) => (
               <Image
-                height={"32%"}
-                width={"100%"}
+                objectFit={"cover"}
+                height={"30%"}
+                width={"95%"}
                 margin={2}
                 borderRadius={10}
                 key={index}
@@ -71,17 +72,17 @@ function Details({ item }: Prop) {
                 <Text margin={2}>Bath: {item.bathroom}</Text>
               </HStack>
             </Badge>
+            <Badge
+              margin={2}
+              fontSize={"20px"}
+              colorScheme="yellow"
+              borderRadius={5}
+              padding={2}
+              marginRight={"120px"}
+            >
+              ${item.price}
+            </Badge>
           </Box>
-
-          <Badge
-            fontSize={"20px"}
-            colorScheme="yellow"
-            borderRadius={5}
-            padding={2}
-            marginRight={"120px"}
-          >
-            ${item.price}
-          </Badge>
         </HStack>
       </Box>
 

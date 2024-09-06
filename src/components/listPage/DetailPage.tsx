@@ -14,10 +14,10 @@ function DetailPage() {
 
   if (item)
     return (
-      <Box width={"100%"} maxW={"1400px"}>
+      <Box padding={2} width={"100%"} maxW={"1400px"}>
         <HiddenMenu />
         <SimpleGrid
-          padding={"20px"}
+          // padding={"30px"}
           columns={style.columns}
           templateColumns={{
             ...style.tempColumns,
