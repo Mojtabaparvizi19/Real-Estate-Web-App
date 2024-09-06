@@ -2,37 +2,28 @@ import { Box, Image, Show, SimpleGrid } from "@chakra-ui/react";
 import backgroundImage from "./assets/bg.png";
 import HiddenMenu from "./components/HiddenMenu";
 import MainSection from "./components/MainSection";
+import style from "./style/style";
 
-function App() {
+function HomePage() {
+  console.log(style);
   return (
     <>
-      <Box width={"100%"} maxWidth={"1400px"}>
+      <Box style={{ ...style.leftColoumn }}>
         <HiddenMenu />
         <SimpleGrid
-          className=""
-          borderRadius={10}
-          margin={4}
-          spacing={5}
-          maxWidth={"1400px"}
-          height={"90%"}
-          columns={{ base: 1, md: 2 }}
+          style={{ ...style.style }}
+          columns={{ ...style.columns }}
           templateColumns={{
-            base: "1fr",
-            md: "2fr 1fr",
+            ...style.tempColumns,
           }}
         >
           <Box>
-            <Box
-              borderRadius={15}
-              height={"88vh"}
-              width={"100%"}
-              color={"black"}
-            >
+            <Box>
               <MainSection />
             </Box>
           </Box>
           <Show above="md">
-            <Box height={"90vh"} color={"black"} bg={"#FFF5E4"}>
+            <Box style={{ ...style.rightColomn }}>
               <Image src={backgroundImage} />
             </Box>
           </Show>
@@ -42,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;

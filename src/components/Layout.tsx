@@ -1,7 +1,7 @@
-import { Box, Show } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
-import NavBar from "./NavBar";
 import ColorModeSwitch from "./ColorModeSwitch";
+import NavBar from "./NavBar";
 
 function Layout() {
   return (
