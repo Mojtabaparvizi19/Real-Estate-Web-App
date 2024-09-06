@@ -35,7 +35,12 @@ function CardItem({ card, isAdded }: Prop) {
       <Card flexDir={"row"} margin={2} padding={2}>
         <Box>
           <Link to={`/list/${card.id}`}>
-            <Image borderRadius={10} boxSize={"150px"} src={card.img} />
+            <Image
+              marginTop={"10%"}
+              borderRadius={10}
+              boxSize={"150px"}
+              src={card.img}
+            />
           </Link>
         </Box>
         <CardBody>
@@ -60,14 +65,14 @@ function CardItem({ card, isAdded }: Prop) {
           </Badge>
 
           <HStack justifyContent={"space-between"}>
-            <Box>
+            <Box className="facilities">
               <Badge borderRadius={5}>
                 <HStack>
                   <Image boxSize={5} src={bedImage} />
                   <Text margin={2}>Bedroom: {card.bedroom}</Text>
                 </HStack>
               </Badge>
-              <Badge className="ms-2" borderRadius={5}>
+              <Badge className="right-badge" borderRadius={5}>
                 <HStack>
                   <Image boxSize={5} src={bathImage} />
                   <Text margin={2}> Bathroom: {card.bathroom}</Text>

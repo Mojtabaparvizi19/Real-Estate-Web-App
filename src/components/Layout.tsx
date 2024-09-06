@@ -7,9 +7,9 @@ function Layout() {
   return (
     <Box width={"1400px"} maxWidth={"1400px"}>
       <ColorModeSwitch />
-      <Show above="md">
-        <NavBar />
-      </Show>
+
+      <NavBar />
+
       <Outlet />
     </Box>
   );

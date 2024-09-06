@@ -26,8 +26,21 @@ li {
   list-style: none;
 }
 
-@media (max-width: 400px) {
+.right-badge {
+  margin-left: 10px;
+}
+
+@media (max-width: 900px) {
   form {
     flex-direction: column;
+  }
+  .facilities {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+  }
+  .right-badge {
+    margin-left: 0px;
+    margin-top: 5px;
   }
 }

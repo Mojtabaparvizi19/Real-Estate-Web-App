@@ -6,6 +6,7 @@ import DetailPage from "../components/listPage/DetailPage";
 import Login from "../login/Login";
 import Profile from "../profile/Profile";
 import routes from "./constants";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +29,15 @@ const router = createBrowserRouter([
         path: routes.login,
         element: <Login sendData={(data: object) => console.log(data)} />,
       },
-      {
-        path: routes.profile,
-        element: <Profile />,
-      },
+      // {
+      //   path: routes.profile,
+      //   element: <Profile />,
+      // },
     ],
+  },
+  {
+    element: <PrivateRoute />,
+    children: [{ path: routes.profile, element: <Profile /> }],
   },
 ]);
 

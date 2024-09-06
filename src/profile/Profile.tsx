@@ -7,6 +7,7 @@ import {
   Card,
   Input,
   Text,
+  Image,
 } from "@chakra-ui/react";
 import HiddenMenu from "../components/HiddenMenu";
 import useDataStore from "../Zstore/store";
@@ -31,7 +32,11 @@ function Profile() {
   const userNameRef = useRef<HTMLInputElement>(null);
   const avatarRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
-  const [info, updateInfo] = useState<Props>({} as Props);
+  const [info, updateInfo] = useState<Props>({
+    avatar: "https://cdn-icons-png.flaticon.com/512/219/219970.png",
+    email: "test@gmail.com",
+    username: "realtorReact",
+  } as Props);
 
   return (
     <Box>
@@ -52,23 +57,17 @@ function Profile() {
             <form
               onSubmit={(event) => {
                 event.preventDefault();
-                // if (userNameRef.current !== null) {
-                //   updateInfo({ ...info, username: userNameRef.current.value });
-                // }
-                // if (emailRef.current !== null) {
-                //   updateInfo({ ...info, email: emailRef.current.value });
-                // }
 
-                // if (avatarRef.current !== null) {
-                //   updateInfo({ ...info, avatar: avatarRef.current.value });
-                // }
-                updateInfo({
-                  email: emailRef.current && emailRef.current.value,
-                  avatar: avatarRef?.current.value,
-                  username: userNameRef?.current.value,
-                });
+                if (userNameRef.current !== null) {
+                  updateInfo({ ...info, username: userNameRef.current.value });
+                }
+                if (emailRef.current !== null) {
+                  updateInfo({ ...info, email: emailRef.current.value });
+                }
 
-                console.log(info);
+                if (avatarRef.current !== null) {
+                  updateInfo({ ...info, avatar: avatarRef.current.value });
+                }
               }}
             >
               <HStack justifyContent={"space-between"}>
@@ -91,25 +90,39 @@ function Profile() {
 
               <Box padding={5}>
                 <HStack className="m-2">
-                  <Box>Avatar : </Box>
+                  <Text>Avatar :</Text>
+                  <Image className="mb-2" boxSize={"45px"} src={info.avatar} />
                   {isUpdating && (
-                    <Input maxWidth={"200px"} id="avatar" ref={avatarRef} />
+                    <Input
+                      placeholder="Enter a link..."
+                      maxWidth={"200px"}
+                      id="avatar"
+                      ref={avatarRef}
+                    />
                   )}
-                  <Text>{info.avatar}</Text>
                 </HStack>
 
                 <HStack className="m-2">
-                  <Box>
-                    Username: <Text>{info.username}</Text>
-                  </Box>
-                  {isUpdating && <Input maxWidth={"200px"} ref={userNameRef} />}
+                  <Text> Username: {info.username}</Text>
+                  {isUpdating && (
+                    <Input
+                      placeholder="New username..."
+                      maxWidth={"200px"}
+                      ref={userNameRef}
+                    />
+                  )}
                   {/* <Input ref={userNameRef} /> */}
                 </HStack>
 
                 <HStack className="m-2">
-                  <Box>E-mail</Box>
-                  {isUpdating && <Input ref={emailRef} maxWidth={"200px"} />}
-                  <Text>{info.email}</Text>
+                  <Text>E-mail: {info.email}</Text>
+                  {isUpdating && (
+                    <Input
+                      placeholder="New E-mail... "
+                      ref={emailRef}
+                      maxWidth={"200px"}
+                    />
+                  )}
                 </HStack>
               </Box>
             </form>

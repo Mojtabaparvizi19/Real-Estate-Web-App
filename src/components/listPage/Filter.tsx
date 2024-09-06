@@ -20,8 +20,6 @@ function Filter() {
     <div>
       <form
         onSubmit={handleSubmit((data: SearchQuery) => {
-          console.log(data);
-          console.log(data.maxPrice);
           setMinPrice(data.minPrice!);
           setMaxPrice(data.maxPrice!);
         })}

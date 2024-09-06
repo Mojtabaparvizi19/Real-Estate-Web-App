@@ -16,7 +16,7 @@ function PopUp({ city }: Prop) {
               <Image
                 objectFit={"cover"}
                 borderRadius={4}
-                boxSize={"10z5px"}
+                boxSize={"105px"}
                 src={city.img}
               />
             </Box>
