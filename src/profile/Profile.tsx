@@ -15,14 +15,23 @@ import { useForm } from "react-hook-form";
 import { CardProp } from "../components/HomeCard";
 import { useRef, useState } from "react";
 
+interface Props {
+  avatar: string;
+  username: string;
+  email: string;
+}
+
 function Profile() {
   const { register, handleSubmit } = useForm<CardProp>();
   const [isUpdating, setUpdating] = useState(false);
+
   const savedItems = useDataStore((select) => select.savedItems);
   const setSavedItems = useDataStore((select) => select.setSavedItems);
-  const [userName, setUsername] = useState("");
+
   const userNameRef = useRef<HTMLInputElement>(null);
   const avatarRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const [info, updateInfo] = useState<Props>({} as Props);
 
   return (
     <Box>
@@ -43,10 +52,23 @@ function Profile() {
             <form
               onSubmit={(event) => {
                 event.preventDefault();
-                if (userNameRef.current !== null) {
-                  setUsername(userNameRef.current.value);
-                  console.log(userNameRef.current.value);
-                }
+                // if (userNameRef.current !== null) {
+                //   updateInfo({ ...info, username: userNameRef.current.value });
+                // }
+                // if (emailRef.current !== null) {
+                //   updateInfo({ ...info, email: emailRef.current.value });
+                // }
+
+                // if (avatarRef.current !== null) {
+                //   updateInfo({ ...info, avatar: avatarRef.current.value });
+                // }
+                updateInfo({
+                  email: emailRef.current && emailRef.current.value,
+                  avatar: avatarRef?.current.value,
+                  username: userNameRef?.current.value,
+                });
+
+                console.log(info);
               }}
             >
               <HStack justifyContent={"space-between"}>
@@ -57,7 +79,7 @@ function Profile() {
                   onClick={() => {
                     setTimeout(() => {
                       setUpdating(!isUpdating);
-                    }, 10);
+                    }, 100);
                   }}
                   className="me-3"
                   size={"sm"}
@@ -73,11 +95,12 @@ function Profile() {
                   {isUpdating && (
                     <Input maxWidth={"200px"} id="avatar" ref={avatarRef} />
                   )}
+                  <Text>{info.avatar}</Text>
                 </HStack>
 
                 <HStack className="m-2">
                   <Box>
-                    Username: <Text>{userName}</Text>
+                    Username: <Text>{info.username}</Text>
                   </Box>
                   {isUpdating && <Input maxWidth={"200px"} ref={userNameRef} />}
                   {/* <Input ref={userNameRef} /> */}
@@ -85,7 +108,8 @@ function Profile() {
 
                 <HStack className="m-2">
                   <Box>E-mail</Box>
-                  {isUpdating && <Input maxWidth={"200px"} />}
+                  {isUpdating && <Input ref={emailRef} maxWidth={"200px"} />}
+                  <Text>{info.email}</Text>
                 </HStack>
               </Box>
             </form>
