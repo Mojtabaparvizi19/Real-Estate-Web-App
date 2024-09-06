@@ -22,7 +22,9 @@ function ListPage() {
         <HiddenMenu />
         <SimpleGrid
           spacing={5}
-          style={style.listPageLeftColumn}
+          margin={4}
+          maxWidth={"1400px"}
+          height={"90%"}
           columns={style.columns}
           templateColumns={{
             ...style.tempColumns,

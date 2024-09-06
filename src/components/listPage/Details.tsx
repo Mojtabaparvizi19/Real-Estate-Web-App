@@ -25,12 +25,12 @@ function Details({ item }: Prop) {
           borderRadius={10}
           display={"flex"}
           overflow={"hidden"}
-          height={"600px"}
+          className="left-grid-detail"
         >
           <Box width={"65%"}>
             <Image
               borderRadius={10}
-              width={"100%"}
+              // width={"100%"}
               height={"100%"}
               objectFit={"cover"}
               src={item.img}
@@ -51,27 +51,27 @@ function Details({ item }: Prop) {
         </SimpleGrid>
       </Box>
 
-      <Box className="mt-5">
-        <Heading>{item.title}</Heading>
+      <Box className="mt-5 ">
+        <Heading fontSize={"25px"}>{item.title}</Heading>
         <HStack justifyContent={"space-between"}>
-          <HStack>
-            <Badge padding={2} borderRadius={4}>
+          <Box className="details">
+            <Badge margin={2} padding={2} borderRadius={4}>
               {item.address}
             </Badge>
 
-            <Badge borderRadius={4}>
+            <Badge margin={2} borderRadius={4}>
               <HStack>
                 <Image boxSize={"15px"} src={bed} />
                 <Text margin={2}>Bed: {item.bedroom}</Text>
               </HStack>
             </Badge>
-            <Badge borderRadius={4}>
+            <Badge margin={2} borderRadius={4}>
               <HStack>
                 <Image boxSize={"15px"} src={bath} />
                 <Text margin={2}>Bath: {item.bathroom}</Text>
               </HStack>
             </Badge>
-          </HStack>
+          </Box>
 
           <Badge
             fontSize={"20px"}

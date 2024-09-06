@@ -30,6 +30,10 @@ li {
   margin-left: 10px;
 }
 
+.left-grid-detail {
+  height: 600px;
+}
+
 @media (max-width: 900px) {
   form {
     flex-direction: column;
@@ -42,5 +46,17 @@ li {
   .right-badge {
     margin-left: 0px;
     margin-top: 5px;
+  }
+}
+
+@media (max-width: 650px) {
+  .left-grid-detail {
+    height: 400px;
+  }
+
+  .details {
+    max-width: 300px;
+    display: block;
+    padding: 2px;
   }
 }
