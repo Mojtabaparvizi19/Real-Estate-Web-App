@@ -2,7 +2,7 @@ const styling = {
   style: {
     borderRadius: "10px",
     margin: "20px",
-    spacing: "5px",
+    // spacing: "5px",
     maxWidth: "1400px",
     height: "90%",
   },
@@ -23,6 +23,12 @@ const styling = {
   leftColoumn: {
     width: "100%",
     maxWidth: "1400px",
+  },
+  listPageLeftColumn: {
+    borderRadius: 10,
+    margin: 4,
+    maxWidth: "1400px",
+    height: "90%",
   },
 
   //   backgroundColor: "red",

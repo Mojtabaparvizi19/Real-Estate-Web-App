@@ -1,7 +1,7 @@
-import { Box, Button, HStack, Image, Text, Show } from "@chakra-ui/react";
+import { Box, Button, HStack, Image, Text, Show, Icon } from "@chakra-ui/react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useDataStore from "../Zstore/store";
-import logo from "../assets/logo.png";
+import { BsFillHouseHeartFill } from "react-icons/bs";
 
 function NavBar() {
   const isLogged = useDataStore((select) => select.isLogged);
@@ -17,7 +17,12 @@ function NavBar() {
               <Box marginRight={"20px"}>
                 <NavLink to={"/"} color={"black"}>
                   <HStack>
-                    <Image className="mb-4" boxSize={"40px"} src={logo} />
+                    <Icon
+                      className="mb-3"
+                      color={"red"}
+                      boxSize={10}
+                      as={BsFillHouseHeartFill}
+                    />
                     <Text fontSize={"30px"}>RealST</Text>
                   </HStack>
                 </NavLink>
@@ -44,15 +49,20 @@ function NavBar() {
                 >
                   sign in
                 </Button>
-                <Button colorScheme="yellow">sign up</Button>
+                <Button
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                  colorScheme="yellow"
+                >
+                  sign up
+                </Button>
               </div>
             )}
             {isLogged && (
               <>
                 <HStack>
-                  <Button onClick={() => navigate("/profile")}>
-                    0 Profile
-                  </Button>
+                  <Button onClick={() => navigate("/profile")}>Profile</Button>
                   <Button
                     onClick={() => {
                       setLoggedIn(false);

@@ -5,8 +5,7 @@ import Map from "../../map/Map";
 import HomeCard from "../HomeCard";
 import Filter from "./Filter";
 import HiddenMenu from "../HiddenMenu";
-
-// import MainSection from "../MainSection";
+import style from "../../style/style";
 
 function ListPage() {
   const minPrice = useDataStore((select) => select.filterQuery.minPrice);
@@ -17,32 +16,20 @@ function ListPage() {
     .filter((item) => item.price > minPrice!)
     .filter((item) => item.price < maxPrice!);
 
-  //
-
   return (
     <div>
       <Box width={"100%"} maxWidth={"1400px"}>
         <HiddenMenu />
         <SimpleGrid
-          className=""
-          borderRadius={10}
-          margin={4}
           spacing={5}
-          maxWidth={"1400px"}
-          height={"90%"}
-          columns={{ base: 1, md: 2 }}
+          style={style.listPageLeftColumn}
+          columns={style.columns}
           templateColumns={{
-            base: "1fr",
-            md: "2fr 1fr",
+            ...style.tempColumns,
           }}
         >
           <Box>
-            <Box
-              borderRadius={15}
-              height={"88vh"}
-              width={"100%"}
-              color={"black"}
-            >
+            <Box borderRadius={15} height={"88vh"} width={"100%"}>
               <Filter />
               <HomeCard />
             </Box>

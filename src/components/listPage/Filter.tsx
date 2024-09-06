@@ -41,6 +41,7 @@ function Filter() {
                 <MenuItem>Buy</MenuItem>
               </MenuList>
             </Menu>
+
             <Input
               {...register("minPrice")}
               id="minPrice"

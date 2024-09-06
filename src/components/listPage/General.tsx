@@ -15,13 +15,7 @@ function General() {
           General
         </Heading>
         <Box padding={2} display={"flex"} placeContent={"center"}>
-          <Box
-            padding={2}
-            borderRadius={10}
-            bg={"gray.200"}
-            height={"100%"}
-            width={"100%"}
-          >
+          <Box padding={2} borderRadius={10} height={"100%"} width={"100%"}>
             <Text>Utilities</Text>
 
             <Text>Pet Policies</Text>

@@ -8,11 +8,11 @@ function HomePage() {
   console.log(style);
   return (
     <>
-      <Box style={{ ...style.leftColoumn }}>
+      <Box style={style.leftColoumn}>
         <HiddenMenu />
         <SimpleGrid
-          style={{ ...style.style }}
-          columns={{ ...style.columns }}
+          style={style.style}
+          columns={style.columns}
           templateColumns={{
             ...style.tempColumns,
           }}
@@ -23,7 +23,7 @@ function HomePage() {
             </Box>
           </Box>
           <Show above="md">
-            <Box style={{ ...style.rightColomn }}>
+            <Box style={style.rightColomn}>
               <Image src={backgroundImage} />
             </Box>
           </Show>
